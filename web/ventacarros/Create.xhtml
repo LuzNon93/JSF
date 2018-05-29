@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVentacarrosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_carroId}" for="carroId" />
+                    <h:inputText id="carroId" value="#{ventacarrosController.selected.carroId}" title="#{bundle.CreateVentacarrosTitle_carroId}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_carroId}"/>
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_modelo}" for="modelo" />
+                    <h:inputText id="modelo" value="#{ventacarrosController.selected.modelo}" title="#{bundle.CreateVentacarrosTitle_modelo}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_modelo}"/>
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{ventacarrosController.selected.marca}" title="#{bundle.CreateVentacarrosTitle_marca}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_marca}"/>
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_kilometraje}" for="kilometraje" />
+                    <h:inputText id="kilometraje" value="#{ventacarrosController.selected.kilometraje}" title="#{bundle.CreateVentacarrosTitle_kilometraje}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_kilometraje}"/>
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{ventacarrosController.selected.precio}" title="#{bundle.CreateVentacarrosTitle_precio}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.CreateVentacarrosLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{ventacarrosController.selected.status}" title="#{bundle.CreateVentacarrosTitle_status}" required="true" requiredMessage="#{bundle.CreateVentacarrosRequiredMessage_status}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ventacarrosController.create}" value="#{bundle.CreateVentacarrosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ventacarrosController.prepareList}" value="#{bundle.CreateVentacarrosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateVentacarrosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
